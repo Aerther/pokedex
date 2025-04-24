@@ -1,0 +1,131 @@
+@import url('https://fonts.cdnfonts.com/css/pokemon-solid');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+}
+
+#container {
+    height: 100vh;
+    width: 100vw;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: url("images/backimage.jpg");
+    background-size: 100% 100%;
+}
+
+.mini {
+    width: 30px;
+    aspect-ratio: 1/1;
+    position: absolute;
+    border-radius: 50%;
+
+    left: 15px;
+    bottom: 15px;
+
+    animation: move 10s infinite, rotate 5s linear infinite;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    } to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes move {
+    0% {
+        bottom: 15px;
+        left: 15px;
+    } 25% {
+        bottom: calc(100vh - 45px);
+        left: 15px;
+    } 50% {
+        left: calc(100vw - 45px);
+        bottom: calc(100vh - 45px);
+    } 75% {
+        bottom: 15px;
+        left: calc(100vw - 45px);
+    } 100% {
+        left: 15px;
+    }
+}
+
+h1 {
+    font-weight: bold;
+    font-family: "Pokemon Solid";
+    letter-spacing: 4px;
+    font-size: clamp(20px, 5vw, 50px);
+
+    color: yellow;
+    -webkit-text-stroke: 1.2px #3333ffb1;
+}
+
+#pokemon {
+    width: 350px;
+    height: 350px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 5px;
+    box-shadow: 0 0 15px black;
+    border-radius: 30px;
+    margin: 30px 0;
+
+
+    /*background-color: white;
+    background: linear-gradient(0deg, white 45%, black 45%, black 50%,  red 50%);
+    */
+
+    color: white;
+}
+
+#pokemon {
+    position: relative;
+    z-index: 0;
+    overflow: hidden;
+}
+
+#pokemon::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: var(--bg-url);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    filter: blur(2.5px) brightness(0.75);
+    z-index: -1;
+}
+
+figure {
+    width: 200px;
+}
+
+img {
+    width: 100%;
+}
+
+button {
+    padding: 10px;
+
+    border: none;
+    background-color: transparent;
+}
+
+button img {
+    width: 100px;
+}
+
+#name {
+    text-align: center;
+}
